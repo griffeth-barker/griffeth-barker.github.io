@@ -29,7 +29,7 @@
 
 - type: bluesky
   icon: 'fa-brands fa-bluesky'
-  url: 'https://hsky.app/griff.systems'                   # Fill with your Bluesky profile link
+  url: 'https://bsky.app/griff.systems'                   # Fill with your Bluesky profile link
 #
 # - type: reddit
 #   icon: 'fa-brands fa-reddit'
