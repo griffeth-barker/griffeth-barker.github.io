@@ -147,10 +147,10 @@ Set-DnsClient -InterfaceAlias YourInterfaceAlias -ConnectionSpecificSuffix YourD
 Set-DnsClient -InterfaceIndex -ServerAddresses ("dns1.yourdomain.com","dns2.yourdomain.com")
 ```
 
-Check out [Better than Just Pinging](/2023-10-21-better-than-just-pinging.md) as well.
+Check out [Better than Just Pinging](_site/posts/2023-10-21-better-than-just-pinging.md) as well.
 
 ## Printers
-Check out [Administer Windows Core Print Servers](/2023-11-14-administer-windows-core-print-servers.md), as the commands described there are relevant in general.
+Check out [Administer Windows Core Print Servers](_site/posts/2023-11-14-administer-windows-core-print-servers.md), as the commands described there are relevant in general.
 
 ## Clipboard Management
 For most commands, you can take the output and copy it to your clipboard using `Set-Clipboard`. As an example, let's get the computer information and copy it:
