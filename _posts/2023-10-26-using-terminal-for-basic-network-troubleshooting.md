@@ -120,7 +120,7 @@ DNSServer            : 172.16.30.1
 > Note that you can get even more information, including listing all of your device's interfaces and their MAC addresses, by instead using `ipconfig /all` or `Get-NetIPConfiguration -Detailed`.
 
 ## Get your public IP address
-I won't go into this here, because you can instead check out [Get Your Public IP Address Using the Terminal](published/2023/get_your_public_ip_address_using_terminal.md)!
+I won't go into this here, because you can instead check out [Get Your Public IP Address Using the Terminal](_posts/2023-10-21-get-your-public-ip-address-using-terminal.md)!
 
 ## Test communication to another IP address
 Alright so we know how to find IP addresses and MAC addresses. But how do we check to see if two devices can communicate on the network?

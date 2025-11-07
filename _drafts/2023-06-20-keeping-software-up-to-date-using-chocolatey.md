@@ -14,8 +14,6 @@ Don't you love those pop-ups you get in the corner of your desktop telling you t
 
 # Installing Chocolatey package manager
 
-![](https://audiomgtmoregame.files.wordpress.com/2020/12/chocolatey-logo.png?w=1024)
-
 The first thing we will need to do is install the Chocolatey package manager. This is going to let us have access to one central source for the programs and their updates.
 
 To install Chocolatey, open Windows PowerShell by going to the Start Menu and typing `powershell` . Right-click the top result, and click "Run as Administrator." This will require you to have administrative rights. If you do not have administrative rights, this process will not be possible.
@@ -99,19 +97,13 @@ Open the Task Scheduler by clicking the Start Menu and typing "task scheduler" t
 
 In the resulting Task Scheduler window, open the Action menu, then click Create Task.
 
-![](https://audiomgtmoregame.files.wordpress.com/2020/12/screenshot-2020-12-15-135956.jpg?w=532)
-
 Give your scheduled task a name and a description, then select "Run whether user is logged in or not" and check "Run with highest privileges." Finally, Configure for: Windows 10.
 
 Move to the Triggers tab.
 
-![](https://audiomgtmoregame.files.wordpress.com/2020/12/image-3.png?w=976)
-
 Add a new trigger to begin the task on a schedule. Input your desired start date, reoccurence period, and ensure "Enabled" is checked, then click OK.
 
 Move to the Actions tab.
-
-![](https://audiomgtmoregame.files.wordpress.com/2020/12/image-4.png?w=972)
 
 Make the action "Start a program" and in the Program/script field, paste the path to PowerShell:
 
