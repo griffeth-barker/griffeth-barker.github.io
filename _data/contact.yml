@@ -23,9 +23,9 @@
   icon: 'fab fa-linkedin'   # icons powered by <https://fontawesome.com/>
   url:  'https://linkedin.com/in/griffeth-barker'                  # Fill with your Linkedin homepage
 
-- type: stack-overflow
-  icon: 'fab fa-stack-overflow'
-  url:  'https://stackoverflow.com/users/30574943/griff-barker'                  # Fill with your stackoverflow homepage
+# - type: stack-overflow
+#   icon: 'fab fa-stack-overflow'
+#   url:  'https://stackoverflow.com/users/30574943/griff-barker'                  # Fill with your stackoverflow homepage
 
 - type: bluesky
   icon: 'fa-brands fa-bluesky'
