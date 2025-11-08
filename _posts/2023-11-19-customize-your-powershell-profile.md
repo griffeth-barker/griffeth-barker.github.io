@@ -6,6 +6,8 @@ tags:
   - profiles
   - customization
   - dot-files
+categories:
+  - powershell
 ---
 # Introduction
 A PowerShell profile is a script that runs every time you start PowerShell and allows you to configure various aspects of your shell environment. You can use it to change the appearance of your console, pre-load modules and scripts, create aliases and functions, and more. By creating your own PowerShell profile, you can tailor PowerShell to your preferences and needs. In the following sections, I will explain how to create a PowerShell profile and how to customize it to your liking.

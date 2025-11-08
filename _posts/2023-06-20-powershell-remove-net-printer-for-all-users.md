@@ -4,6 +4,8 @@ tags:
   - powershell
   - windows
   - printers
+categories:
+  - powershell
 ---
 
 # Purpose

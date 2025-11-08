@@ -6,6 +6,8 @@ tags:
 - unix
 - linux
 - datetime
+categories:
+  - powershell
 ---
 
 # Converting Unix timestamps in PowerShell

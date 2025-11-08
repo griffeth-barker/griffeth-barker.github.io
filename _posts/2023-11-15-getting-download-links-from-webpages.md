@@ -3,6 +3,8 @@ title: Getting Download Links from Webpages using PowerShell
 tags:
   - powershell
   - web-scraping
+categories:
+  - powershell
 ---
 # Introduction
 I recently had the need to update the Microsoft ODBC Driver for SQL Server on a collection of Windows servers. I found the download URL for the particular version I needed on Microsoft's website and then threw together a quick script that I could run against the list of servers to download and update the ODBC driver on all the servers.

@@ -4,6 +4,8 @@ date: "2025-10-31"
 tags:
   - powershell
   - sqlite
+categories:
+  - powershell
 ---
 
 # Programmatic SQLite Queries in PowerShell

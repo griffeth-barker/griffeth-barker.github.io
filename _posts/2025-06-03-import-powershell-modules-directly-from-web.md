@@ -3,6 +3,8 @@ title: "Import PowerShell Modules Directly from GitHub or GitLab without Install
 tags:
 - powershell
 - modules
+categories:
+  - powershell
 ---
 
 # Import PowerShell Modules Directly from GitHub or GitLab without Installing

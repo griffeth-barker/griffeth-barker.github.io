@@ -5,7 +5,7 @@ tags:
   - windows
   - printers
 categories:
-  - how-to
+  - powershell
 ---
 
 # Purpose

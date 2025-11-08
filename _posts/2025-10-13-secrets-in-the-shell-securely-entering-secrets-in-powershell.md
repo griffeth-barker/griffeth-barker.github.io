@@ -6,6 +6,8 @@ tags:
   - secrets
   - secret-management
   - security
+categories:
+  - powershell
 ---
 
 # Introduction

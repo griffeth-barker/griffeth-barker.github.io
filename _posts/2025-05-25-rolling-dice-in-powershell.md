@@ -4,6 +4,8 @@ tags:
 - powershell
 - rng
 - fun
+categories:
+  - powershell
 ---
 
 # Rolling Dice in PowerShell

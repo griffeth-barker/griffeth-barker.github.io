@@ -4,6 +4,8 @@ tags:
   - troubleshooting
   - powershell
   - bash
+categories:
+  - powershell
 ---
 
 I'm sure we have all pinged something during troubleshooting at one point or another. But what if, in the same amount of steps as pinging, we could test *more* than just if the IP address was reachable?

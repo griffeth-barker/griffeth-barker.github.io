@@ -6,6 +6,8 @@ tags:
   - devolutions
   - powershell
   - terminal
+categories:
+  - powershell
 ---
 > **Special Thanks**
 > *Special thanks to [**Marc-André Moreau**](https://forum.devolutions.net/users/25115/mamoreau), whose expertise and assistance on the Devolutions Forum led to this workaround.*

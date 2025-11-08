@@ -3,6 +3,8 @@ title: "Setup a print server using Widnows Server Core"
 tags:
   - windows-server
   - powershell
+categories:
+  - powershell
 ---
 
 # Introduction

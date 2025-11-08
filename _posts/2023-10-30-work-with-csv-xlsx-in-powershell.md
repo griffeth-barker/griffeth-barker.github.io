@@ -5,6 +5,8 @@ tags:
   - excel
   - csv
   - data
+categories:
+  - powershell
 ---
 # Introduction
 PowerShell is a powerful scripting language that can automate a wide variety of tasks. One common activity that IT professionals need to perform is working with data files such as CSV and XLSX files, both of which are typically associated with Microsoft Excel or other workbook/worksheet applications. Excel files are widely used for storing and analyzing data, while CSV files are simple text files that contain comma-separated values but can be displayed in Excel similarly to an Excel workbook, albeit without formatting.

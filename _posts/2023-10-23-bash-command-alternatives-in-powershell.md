@@ -4,6 +4,8 @@ tags:
   - terminal
   - powershell
   - bash
+categories:
+  - powershell
 ---
 
 Bash and PowerShell are two popular command-line shells that can help you automate tasks and manage your system. Bash is the default shell for Linux and macOS, while PowerShell is the default shell for Windows. If you are an IT professional who has some experience in using Bash, but need to administer a Windows environment, this might just be helpful to you. In this post, we'll take a look at some common Bash commands and their equivalent (more or less) commands in PowerShell.

@@ -4,6 +4,8 @@ tags:
   - troubleshooting
   - powershell
   - active-directory
+categories:
+  - powershell
 ---
 
 Unlocking a domain user's account is simple enough, but what about when that user is getting locked out repeatedly? What is causing it? This is a headache that has plagued many an IT professional.
@@ -38,7 +40,7 @@ else {
 
 The output looks something like this:
 ```output
-TimeCreated             Account Name      Workstations
+TimeCreated            Account Name      Workstations
 ----------             ------------      ------------
 10/14/2023 09:20:17 AM Username          WorkstationName
 10/14/2023 08:13:05 AM Username          WorkstationName

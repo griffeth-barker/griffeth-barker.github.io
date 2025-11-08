@@ -4,6 +4,8 @@ tags:
   - powershell
   - troubleshooting
   - logging
+categories:
+  - powershell
 ---
 You're troubleshooting an application and need to look through the logs to find out what is happening. We've all been there, right? Log files are an important resource during troubleshooting. So much so, that if you open a ticket with the software vendor, their support will likely open up their communication by requesting the log files.
 

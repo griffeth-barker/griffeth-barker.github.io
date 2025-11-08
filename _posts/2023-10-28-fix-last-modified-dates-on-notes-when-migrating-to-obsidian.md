@@ -3,6 +3,8 @@ title: Fix Last Modified Dates on Notes when Migrating to Obsidian
 tags:
   - obsidian
   - powershell
+categories:
+  - powershell
 ---
 In this quick blog post, we'll take a look at a problem that frequently plagues people who are migrating to Obsidian from another notetaking platform.
 

@@ -1,10 +1,12 @@
 ---
 title: "Uninstall Windows Copilot using PowerShell"
 tags:
-- powershell
-- windows
-- copilot
-- ai
+  - powershell
+  - windows
+  - copilot
+  - ai
+categories:
+  - powershell
 ---
 
 # Uninstall Windows Copilot using PowerShell

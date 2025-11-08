@@ -4,6 +4,8 @@ tags:
   - terminal
   - powershell
   - bash
+categories:
+  - powershell
 ---
 
 We get our private IP address using the terminal all the time. I'm sure we've all used `ipconfig /all` in Windows. It's simple and much faster than opening all the steps to open Network Connections, opening a NIC's properties, and opening the IPv4 configuration. The terminal tends to save you time as you get comfortable with it!

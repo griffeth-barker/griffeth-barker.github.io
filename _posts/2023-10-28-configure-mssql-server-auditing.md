@@ -6,6 +6,8 @@ tags:
   - powershell
   - configuration
   - security
+categories:
+  - powershell
 ---
 If you are a system administrator who works with SQL Server, you know how important it is to audit your SQL Server instances and databases. Auditing allows you to track and record the activities that occur on your SQL Server environment, such as who accessed what data, when, and how. This can help you improve the security and compliance of your data, as well as troubleshoot and investigate any issues or incidents that may happen. 
 
