@@ -9,19 +9,16 @@ categories:
 ---
 
 # Purpose
-
 This brief article details the commands necessary to use PowerShell to add/install/map a network printer for all users of a computer.
 
 # Prerequisites
-
 The below actions require the executing user to have administrative rights to the workstation in question.
 
 # Solution
-
 ## Establish a Remote PowerShell session
 
 In an elevated PowerShell session (running as administrator), run the following command;
-```PowerShell
+```powershell
 Enter-PsSession -ComputerName HOSTNAME.FQDN
 ```
 where `HOSTNAME.FQDN` is the fully-qualified domain name of the workstation in question.
@@ -31,10 +28,9 @@ _Example:_ desktop01.yourdomain.com
 You _can_ actually execute this process using the short name of the computer instead of the FQDN.
 
 ## Add the network printer for all users
-
 Once you’ve entered the remote PowerShell session successfully, run the following commands in sequence;
 
-```cmd
+```powershell
 RUNDLL32 PRINTUI.DLL,PrintUIEntry /ga /n\\PRINTSERVER\Shared-printer
 ```
 
