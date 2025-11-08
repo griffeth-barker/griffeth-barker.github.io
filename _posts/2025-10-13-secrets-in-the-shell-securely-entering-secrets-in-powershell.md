@@ -31,7 +31,7 @@ Set-Secret `
 ```
 
 Here is what the corresponding event log entry looks like if you do this:  
-![winevent-plaintext-entry](../assets/post-images/winevent-plaintext-entry.png)
+![winevent-plaintext-entry](post-images/winevent-plaintext-entry.png)
 
 See how the event log itself shows the secret's value, "SuperSecretPassword" in plain text? That's a problem! So what are some better options?
 
@@ -45,7 +45,7 @@ Set-Secret `
 ```
 
 Here is what the corresponding event log entry looks like if you do this:
-![winevent-plaintext-entry](../assets/post-images/winevent-securestring-entry.png)
+![winevent-plaintext-entry](post-images/winevent-securestring-entry.png)
 
 Notice how the event log itself no longer shows the secret's value? This is great! We do have other options available to us as well.
 
@@ -59,7 +59,7 @@ Set-Secret `
 ```
 
 Running this will result in a prompt to provide a username and password. Here is what the corresponding event log entry looks like if you do this:
-![winevent-plaintext-entry](../assets/post-images/winevent-pscredential-entry.png)
+![winevent-plaintext-entry](post-images/winevent-pscredential-entry.png)
 
 Again, we see that the secret is not revealed in plain text in the log. Excellent!
 
@@ -73,19 +73,20 @@ Set-Secret `
 ```
 
 The CliXml file will be imported securely and set the secret value without leaking the secret in plain text:
-![winevent-plaintext-entry](../assets/post-images/winevent-import-clixml-entry.png)
+![winevent-plaintext-entry](post-images/winevent-import-clixml-entry.png)
 
 Just as with the other two secure examples, we're in the clear (but not cleartext thankfully).
 
 # Wrapping Up
 
 There we have it! We demonstrated why it is important to be careful when entering secrets in your SecretStore.
-![winevent-plaintext-entry](../assets/post-images/secrets-entry-summary.png)
+![winevent-plaintext-entry](post-images/secrets-entry-summary.png)
 
 ## Notes  
 > ℹ️ *If your environment has Protected Logging enabled, sensitive data that is logged is encrypted. It's recommended to have this enabled if you have Script Block logging enabled. Even with Protected Logging enabled, there's nothing wrong with building good habits and command line hygiene!*
 
 > ⚠️ *If you are using Start-Transcript and Stop-Transcript or another method to capture the output a script, be mindful that if you use the Get-Secret cmdlet with the -AsPlainText parameter, the secret could be logged and leaked. Be mindful of how you access your secrets and where possible, do not retrieve them as plain text.*
->![winevent-plaintext-entry](../assets/post-images/get-secret-asplaintext.png)
+> 
+>![winevent-plaintext-entry](post-images/get-secret-asplaintext.png)
 
 > ✅ *In the code block examples, the parameters are split across lines using the grave ` symbol. This was a conscious decision to better mimic how a reader might type it in at the command line. When writing scripts, please be sure to use splatting instead.*  
