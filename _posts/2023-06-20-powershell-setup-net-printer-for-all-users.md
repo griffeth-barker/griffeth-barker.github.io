@@ -1,9 +1,11 @@
 ---
-title: "powershell_setup_net_printer_for_all_users"
+title: "Use PowerShell to setup a network printer for all users"
 tags:
   - powershell
   - windows
   - printers
+categories:
+  - how-to
 ---
 
 # Purpose
