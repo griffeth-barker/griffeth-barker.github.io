@@ -9,9 +9,9 @@ tags:
 ---
 
 # Introduction
-Users of PowerShell may have encountered or make use of the SecretManagement and SecretStore modules to securely handle their passwords, API keys, and other sensitive secrets both for daily use as well as unattended automations. After all, you wouldn't hard-code a credential into a script, right? ...right?
-
-That's a great practice and all, but to retrieve a securely stored secret, you need to actually store it first! That means providing the secret to your SecureStore for storage. Many people will follow the [Get started with the SecretStore module - PowerShell | Microsoft Learn](https://learn.microsoft.com/en-us/powershell/utility-modules/secretmanagement/get-started/using-secretstore?view=ps-modules) article. This is good, but there's an important catch that needs to be understood. 
+Users of PowerShell may have encountered or make use of the SecretManagement and SecretStore modules to securely handle their passwords, API keys, and other sensitive secrets both for daily use as well as unattended automations. After all, you wouldn't hard-code a credential into a script, right? ...right?  
+  
+That's a great practice and all, but to retrieve a securely stored secret, you need to actually store it first! That means providing the secret to your SecureStore for storage. Many people will follow the [Get started with the SecretStore module - PowerShell - Microsoft Learn](https://learn.microsoft.com/en-us/powershell/utility-modules/secretmanagement/get-started/using-secretstore?view=ps-modules) article. This is good, but there's an important catch that needs to be understood. 
 
 **What you enter at the command line has the potential to be logged.**  
 
