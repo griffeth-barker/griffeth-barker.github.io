@@ -51,7 +51,7 @@ Write-Host " "
 Write-Host "Disabling Windows Defender Firewall for the Domain network environment..."
 Set-NetFirewallProfile -Profile Domain -Enabled False
 ```
-I don't really have any comments for this aside (aside from a couple of global things, while I'll cover at the end of this section).
+I don't really have any comments for this (aside from a couple of global things, while I'll cover at the end of this section).
 
 There was a long section of code dedicated to removing Windows 10 bloatware and undesired apps (highly truncated for brevity):
 ```powershell
@@ -76,7 +76,7 @@ foreach ($app in $apps) {
 }
 ```
 
-I was definitely referencing things I found online, since the next section of the script referenced a function that I did not include in the script, because I didn't really understand exactly what I was doing or how PowerShell worked at the time.
+ Oh, look, a wild `Write-Output` appeared amidst my `Write-Host`s! I guarantee I didn't understand the difference at the time. I was definitely referencing things I found online, since the next section of the script referenced a function that I did not include in the script, because I didn't really understand exactly what I was doing or how PowerShell worked at the time.
 ```powershell
 # Multiple instances of something like this
 # But I never defined the `force-mkdir` function anywhere...
@@ -87,7 +87,7 @@ Set-ItemProperty "HKLM:\SOFTWARE\Policies\Microsoft\WindowsStore" "AutoDownload"
 
 Then there was this sick piece of code that supposedly downloaded the latest Adobe Reader DC installer. But it was just a `Write-Host` then a commented out Uri, so that's neat.
 
-I then apparently tried to check for the `C:\archive` directory mentioned earlier, and tried to create it (again). For...reasons? To my own credit, I did actually manage to use an if/else statement at this point.
+I then apparently tried to check for the **C:\archive** directory mentioned earlier, and tried to create it (again). For...reasons? To my own credit, I did actually manage to use an if/else statement at this point.
 
 Oh, look, here's where that Adobe download was happening...
 ```powershell
@@ -125,6 +125,7 @@ Obviously there's a lot that I would do differently these days. First, I probabl
   - Actually define functions that are called later in the script
   - Use Winget, chocolately, or another package manager instead of downloading installers from the web
   - Use proper indentation, formatting, etc.
+  - Not use aliases and expand full property names instead of using positional parameters
 
 # Wrapping Up
 It's tought to look back and cringe at the first scripts we wrote, but I think it offers a moment to pause and reflect on the progress we've made. There's always something to be learned. When I wrote that first script, I never imagined that I would end up spending so much of my time writing PowerShell, that it would carry me through my career up to this point, or that I'd be writing this blog or participating in such a great community.
