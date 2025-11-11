@@ -4,6 +4,8 @@ date: "2025-10-20"
 tags:
   - powershell
   - conditionals
+categories:
+  - powershell
 ---
 
 ## "If this happens, then I want this to happen." 
