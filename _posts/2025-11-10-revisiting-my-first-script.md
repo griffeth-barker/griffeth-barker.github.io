@@ -1,9 +1,11 @@
 ---
 title: "Revisiting My First Script"
 tags:
-- powershell
-- workstation-configuration
-- windows
+  - powershell
+  - workstation-configuration
+  - windows
+categories:
+  - powershell
 ---
 
 ![](/post-images/revisiting-my-first-script-banner.png)
