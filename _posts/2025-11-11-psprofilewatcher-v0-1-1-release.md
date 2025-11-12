@@ -1,12 +1,14 @@
 ---
 title: "PSProfileWatcher v0.1.1 Release"
 tags:
-- powershell
-- profile-management
-- utilities
-- security
-- hash
-- integrity-checking
+  - powershell
+  - profile-management
+  - utilities
+  - security
+  - hash
+  - integrity-checking
+categories:
+  - powershell
 ---
 
 ![PSProfileWatcher-Icon-Original-NoBg-128x128.png](/post-images/PSProfileWatcher-Icon-Original-NoBg-128x128.png)
