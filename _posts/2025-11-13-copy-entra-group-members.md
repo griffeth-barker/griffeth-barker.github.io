@@ -8,7 +8,7 @@ categories:
   - powershell
 ---
 
-A real short share today. If you ever have the occasion where you want to take all of the members of a specific Entra group (or set of Entra groups), and add them as direct members of a different Entra group, you can do so with the `Copy-EntraGroupMembership` function. I recently had a reason to do this and didn't find anything terribly useful returned from `Get-Command -Module Microsoft.Entra*` so I threw together this function. Here's a quick breakdown.
+A real short share today. If you ever have the occasion where you want to take all of the members of a specific Entra group (or set of Entra groups), and add them as direct members of a different Entra group, you can do so with the `Copy-EntraGroupMember` function. I recently had a reason to do this and didn't find anything terribly useful returned from `Get-Command -Module Microsoft.Entra*` so I threw together this function. Here's a quick breakdown.
 
 The function requires the **Microsoft.Entra** module.
 ```console
