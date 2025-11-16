@@ -1,5 +1,5 @@
 ---
-title: "PSProfileWatcher v0.1.1 Release"
+title: "PSProfileWatcher v0.2.0 Release"
 tags:
   - powershell
   - profile-management
