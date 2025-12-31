@@ -1,5 +1,5 @@
 ---
-title: "A Database Engine, a Database, and a PowerShell Script Walk Into a Bar"
+title: "A Database Engine, a Database, and a PowerShell Script Walk Into a Single File"
 tags:
   - powershell
   - sqlite
