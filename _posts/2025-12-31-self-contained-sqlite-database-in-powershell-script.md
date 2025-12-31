@@ -10,9 +10,6 @@ categories:
   - powershell
 ---
 
-> ⚠️  **WARNING**: This is for educational purposes only. It should not be considered production-ready, best-practice, etc. You should fully understand code before you run it on your system, and you should have authorization to run code on your system. The contents of this post and associated repository may trigger endpoint protection and antivirus, though the contents as published are not malicious. This little experiment uses SQLite, which is not affliated with me nor this project, and can be obtained from their [website](https://sqlite.org/index.html).
-
-## Background
 You ever stumble onto some interesting information that gives you an idea? While browsing some documentation the other day, I learned about NTFS Alternate Data Streams and how you can interact with them in PowerShell. There are plenty of people well-versed in this but it was new to me. I successfully did a basic interaction test:
 
 ```powershell
@@ -25,6 +22,8 @@ Get-Item -Path $file -Stream *
 ```
 
 Interesting! So we can store and access text very easily. So my next thought was, what else can we put in an alternate data stream? I decided to start working with a `.ps1` file, simply because I figured it might be useful later and I'm prone to creating PowerShell scripts.
+
+> ⚠️  **WARNING**: This is for educational purposes only. It should not be considered production-ready, best-practice, etc. You should fully understand code before you run it on your system, and you should have authorization to run code on your system. The contents of this post and associated repository may trigger endpoint protection and antivirus, though the contents as published are not malicious. This little experiment uses SQLite, which is not affliated with me nor this project, and can be obtained from their [website](https://sqlite.org/index.html).
 
 ## Storing an application
 For whatever reason, I opted to shove an application into an ADS of my PowerShell script file. So I made an attempt at encoding it. Turns out the Windows clipboard and some text editors really don't like when you have a few million characters in a single copy/paste action. I opted to have a build script that would generate the actual script that would contain the SQLite executable, which would avoid me needing to copy and paste the massive Base64-encoded string.
