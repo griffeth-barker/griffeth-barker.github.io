@@ -68,7 +68,7 @@ This is where I hit the biggest wall. As far as I can tell, Windows places a man
 
 To bypass this, I had Google Gemini help me write a bridge to the Windows Kernel using C# (at least by my understanding). kernel32.dll!CreateFile API is used, which allows you to request permissive sharing bits that standard PowerShell simply cannot access.
 
-```C#
+```csharp
 public class Win32Ghost {
     [DllImport("kernel32.dll", SetLastError = true, CharSet = CharSet.Auto)]
     public static extern SafeFileHandle CreateFile(
