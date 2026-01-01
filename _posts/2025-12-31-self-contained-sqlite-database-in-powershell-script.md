@@ -23,10 +23,10 @@ Get-Item -Path $file -Stream *
 
 Interesting! So we can store and access text very easily. So my next thought was, what else can we put in an alternate data stream? I decided to start working with a `.ps1` file, simply because I figured it might be useful later and I'm prone to creating PowerShell scripts.
 
-> ⚠️  **WARNING**: This is for educational purposes only. It should not be considered production-ready, best-practice, etc. You should fully understand code before you run it on your system, and you should have authorization to run code on your system. The contents of this post and associated repository may trigger endpoint protection and antivirus, though the contents as published are not malicious. This little experiment uses SQLite, which is not affliated with me nor this project, and can be obtained from their [website](https://sqlite.org/index.html).
+> ⚠️  **WARNING**: This is for educational purposes only. It should not be considered production-ready, best-practice, etc. You should fully understand code before you run it on your system, and you should have authorization to run code on your system. The contents of this post and associated repository may trigger endpoint protection and antivirus, though the contents as published are not malicious. This little experiment uses SQLite, which is not affliated with me nor this project, and can be obtained from their website (see links under the "Additional Reading" section).
 
 ## Storing an application
-For whatever reason, I opted to shove an application into an ADS of my PowerShell script file. So I made an attempt at encoding it. Turns out the Windows clipboard and some text editors really don't like when you have a few million characters in a single copy/paste action. I opted to have a build script that would generate the actual script that would contain the SQLite executable, which would avoid me needing to copy and paste the massive Base64-encoded string.
+For whatever reason, I opted to shove an application into an ADS of my PowerShell script file. So I made an attempt at encoding it. Turns out the Windows clipboard and some text editors really don't like when you have a few million characters in a single copy/paste action. I opted to have a build script that would generate the actual script that would contain the SQLite executable, avoiding the Base64 "wall of text" on my clipboard entirely.
 
 So now I had `build.ps1`, and it was successfully storing `sqlite3.exe` as a Base64-encoded string:
 ```powershell
@@ -62,11 +62,41 @@ To keep the footprint clean, the script generates a unique GUID for the engine e
     if ( Test-Path $TempDb ) { Remove-Item $TempDb -Force -ErrorAction SilentlyContinue }
 ```
 
-A function within the file would be necessary, so `Invoke-SQLiteQuery` came into the picture. Initially, it just did a simple query against the database but I quickly realized I'd need to ensure the table existed. So why not just have the table created if it doesn't already exist? I added some validation for the ended up with something like this:
+A function within the file would be necessary, so `Invoke-SQLiteQuery` came into the picture. Initially, it just did a simple query against the database but I quickly realized I'd need to ensure the table existed. So why not just have the table created if it doesn't already exist? I added some validation for the ended up with something like this:  
 
-This is where I hit the biggest wall. As far as I can tell, Windows places a mandatory lock on a script while it's running. PowerShell cmdlets appear to respect this lock so strictly they won't let you write to the file's own hidden streams while the code is executing.
+```powershell
+# creating the table if it doesn't exist already
+if ($SqlStatement -match "INSERT\s+INTO\s+(\w+)\s*\((.*?)\)\s+VALUES") {
+            $Table = $Matches[1]
+            $Cols = $Matches[2] -split ',' | ForEach-Object { "$($_.Trim()) TEXT" }
+            $SqlStatement = "CREATE TABLE IF NOT EXISTS $Table (ID INTEGER PRIMARY KEY AUTOINCREMENT, $($Cols -join ', '), CreatedAt DATETIME DEFAULT CURRENT_TIMESTAMP);`n" + $SqlStatement
+        }
 
-To bypass this, I had Google Gemini help me write a bridge to the Windows Kernel using C# (at least by my understanding). kernel32.dll!CreateFile API is used, which allows you to request permissive sharing bits that standard PowerShell simply cannot access.
+        # select operations
+        if ($SqlStatement -match "^\s*SELECT") {
+            $rawOutput = & $TempExe -csv -header $TempDb $SqlStatement
+            if ($rawOutput) {
+                $csvData = $rawOutput | ConvertFrom-Csv
+                foreach ($row in $csvData) {
+                    $hash = @{}
+                    $row.psobject.properties | ForEach-Object { $hash[$_.Name] = $_.Value }
+                    [DatabaseRecord]::new($hash)
+                }
+            }
+        } else {
+            # insert operations
+            & $TempExe -header -column $TempDb $SqlStatement
+            
+            if (Test-Path $TempDb) {
+                [Win32Ghost]::WriteAds($CurrentScript + ":Data", [System.IO.File]::ReadAllBytes($TempDb))
+            }
+        }
+    } 
+```
+
+With that all in place, I gave it a whirl and this is where I hit the biggest wall. As far as I can tell, Windows places a mandatory lock on a script while it's running. PowerShell cmdlets appear to respect this lock so strictly they won't let you write to the file's own hidden streams while the code is executing.
+
+To bypass this, I had Google Gemini help me. By my understanding, this resulting in a bridge to the Windows Kernel using kernel32.dll!CreateFile API in C# (at least by my understanding).
 
 ```csharp
 public class Win32Ghost {
@@ -79,7 +109,7 @@ public class Win32Ghost {
 }
 ```
 
-This created a handoff point where PowerShell provides the path, and the Win32 API handles the "illegal" I/O. I do not know C#, and don't fully understand how exactly this works, but as far as I can tell, it lets PowerShell provide the file path then we can open a handle to the file using (probably overly) permissive access flags that I couldn't figure out how to do in PowerShell. **This is probably bad practice and/or unsafe.** But I was just playing around in a virtual machine so stakes were low.
+This created a handoff point where PowerShell provides the path, and the Win32 API handles the "illegal" I/O using dwShareMode 7. I do not know C#, and don't fully understand how exactly this works, but as far as I can tell, this resolves the issue using (probably overly) permissive access flags that I couldn't figure out how to do in PowerShell. **This is probably bad practice and/or unsafe.** But I was just playing around in an ephemeral virtual machine so stakes were pretty low.
 
 ## Using the Database
 With a somewhat complete `build.ps1` script, I was able to successfully create `main.ps1` that stands on its own. No configuration, no external dependencies. All you have to do is start writing and reading records! The first time  you do this, the database engine will realize that the database needs to be initialized and handles it on-the-fly.
@@ -128,6 +158,12 @@ This was a fun rabbit hole to fall down unexpectedly. I love finding weird thing
   2. A database
   3. A PowerShell script to interact with the database
 
-🔗 **You can find the repository with the script on [GitHub](https://github.com/griffeth-barker/ADSSQLite).**
+🔗 **You can find the repository with the build script on [GitHub](https://github.com/griffeth-barker/ADSSQLite).**
 
 Does this solution support complex database operations? Almost certainly not. Is this a good solution for something? Unlikely. Is it secure and best-practice? Also no! But was it interesting and fun? **Yes.**
+
+## Additional Reading
+  - [Microsoft Learn - CreateFile2 function (fileapi.h)](https://learn.microsoft.com/en-us/windows/win32/api/fileapi/nf-fileapi-createfile2)
+  - [Microsoft Learn - Alternate Data Streams](https://learn.microsoft.com/en-us/openspecs/windows_protocols/ms-fscc/e2b19412-a925-4360-b009-86e3b8a020c8)
+  - [Microsoft Sysinternals - Streams](https://learn.microsoft.com/en-us/sysinternals/downloads/streams)
+  - [NinjaOne - Alternate Data Streams: A Complete Overview](https://www.ninjaone.com/blog/alternate-data-streams/)
