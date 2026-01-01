@@ -127,6 +127,8 @@ With a somewhat complete `build.ps1` script, I was able to successfully create `
 # 1   Value1  Value2  12/31/2025 6:53:05 PM
 ```
 
+When you run `main.ps1 -Query` and provide a SQL query, the script obtains the Base64-encoded `sqlite3.exe` binary from the default stream of the script (the content), decodes it, and writes it to a temporary file on disk, along with a copy of the current database state as obtained from the `main.ps1:Data` stream, assuming it exists. The query is executed by the temporary engine against the temporary copy of the database, and the resulting database state is written back to the Data stream of `main.ps1`, then the temporary engine and datbase files are deleted from disk.
+
 ## Output
 Speaking of classes earlier, I realized that when I would query the database, the object that was returned looked like a table, but was actually just a string. Being a fan of the PowerShell pipeline and objects, that simply wouldn't do, so I opted for a `[DatabaseRecord]` class:
 
