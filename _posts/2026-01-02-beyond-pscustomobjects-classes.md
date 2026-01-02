@@ -159,7 +159,7 @@ Our finished constructor looks like this:
 We're expecting any `System.Object` as the input object type and property mapping will happen as we designed.
 
 ## Methods
-Now let's go a bit beyond the basics. We're going to introduce Object-Oriented Programming concepts here. You may have noticed when using PowerShell that if you pipe certain objects to `Get-Member` that there are not only properties of the object, but sometimes *methods* as well. In fact, we used some methods earlier when we used `.Split(',')` and `.Trim()`. There are two types of methods we can add--instance and static. Instance methods require an instance of the object to already exist (e.g. `$object.Method()`), whereas static methods do not require an instane of the object to exist, and often create an instance of the object (e.g. `[ClassName]::Method()`).
+Now let's go a bit beyond the basics. We're going to introduce Object-Oriented Programming concepts here. You may have noticed when using PowerShell that if you pipe certain objects to `Get-Member` that there are not only properties of the object, but sometimes *methods* as well. In fact, we used some methods earlier when we used `.Split(',')` and `.Trim()`. There are two types of methods we can add--instance and static. Instance methods require an instance of the object to already exist (e.g. `$object.Method()`), whereas static methods do not require an instance of the object to exist, and often create an instance of the object (e.g. `[ClassName]::Method()`).
 
 Here's our list of things we want to be able to do via methods:
   - Try to ping our public IP address as returned by the API call
