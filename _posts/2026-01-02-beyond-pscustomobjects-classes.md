@@ -286,7 +286,7 @@ Let's also offer a method to get some information about the owner of the public 
 Finally and crucially, we need a static method that allows us to create an instance of the `WebIdentityInfo` object class.
 
 ```powershell
-    static [WebIdentityInfo] New() {
+    static [WebIdentityInfo] Get() {
         try {
             $query = Invoke-RestMethod -Method GET -Uri 'https://ifconfig.me/all.json'
             return [WebIdentityInfo]::new($query)
@@ -296,13 +296,14 @@ Finally and crucially, we need a static method that allows us to create an insta
         }
     }
 ```
+> Naming things is hard.
 
 ## Usage
 **You can find the completed class definition in this [GitHub gist](https://gist.github.com/griffeth-barker/974a573e850a6e9ce197ba1d776e32a6).**
 
 ```powershell
 # Create an object
-$info = [WebIdentityInfo]::New()
+$info = [WebIdentityInfo]::Get()
 # No output
 
 # View properties and members
