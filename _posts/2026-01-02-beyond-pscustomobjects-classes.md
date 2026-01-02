@@ -406,7 +406,9 @@ $info.GetWhoIs()
 ## Final Thoughts
 Transitioning from simple scripts that work to reliable systems requires changing how we handle data. Moving away from generic PSCustomObjects to classes lets us create better formatted data that is type-safe, more pipe-able, and consistent. Things like data normalization can happen once when the data is obtained, rather than manually in the script or at the command line each time. We also unlock a whole new world of shortcuts with methods. And if the underlying API ever changes, we need only update the class definition, rather than every function and script file that uses that API.
 
-I went a long time not using classes in modules and other PowerShell work I did because I struggled to understand them. I hope that this post walks through the basic process of writing a class in a way that helps someone along their PowerShell journey.
+I went a long time not using classes in modules and other PowerShell work I did because I struggled to understand them. I hope that this post walks through the basic process of writing a class in a way that helps someone along their PowerShell journey. 
+
+Have you used classes before? Let me know [@griff.systems on BlueSky](https://bsky.app/profile/griff.systems).
 
 ## Additional Reading
   - [Microsoft Learn - PowerShell - about_Classes](https://learn.microsoft.com/en-us/powershell/module/microsoft.powershell.core/about/about_classes?view=powershell-7.5)
