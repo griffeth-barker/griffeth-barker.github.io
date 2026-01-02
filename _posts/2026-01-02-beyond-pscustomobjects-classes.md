@@ -4,6 +4,7 @@ tags:
   - powershell
   - classes
   - objects
+  - object-oriented-programming
 categories:
   - powershell
 ---
