@@ -1,13 +1,13 @@
 ---
-title: "PSAdminLauncher v0.1.0 Release"  
-tags:  
-  - powershell  
-  - windows  
-  - elevation  
-  - executables  
-categories:  
-  - powershell  
----  
+title: "PSAdminLauncher v0.1.0 Release"
+tags:
+  - powershell
+  - windows
+  - elevation
+  - executables
+categories:
+  - powershell
+---
   
 If you administer hardened Windows servers, you know the drill. Every time you go to open a built-in tool you need (Active Directory tools, certificate tools, make firewall modifications, etc.), you're prompted to re-enter your password again, and again, and again. After about the third time you get frustrated!  
 
