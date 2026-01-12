@@ -67,7 +67,7 @@ $window = [Windows.Markup.XamlReader]::Parse($xaml)
 Each window feature is then defined and has events/actions tied to them.  
 
 ## Key Features
-![screenshot-main-window](https://github.com/griffeth-barker/PSAdminLauncher/blob/main/images/screenshot-main-window.png)  
+![screenshot-main-window](/post-images/psadminlauncher-screenshot-main-window.png)  
 
 ### Dynamic Triple-Column Discovery
 The launcher scans for common RSAT-type tools in `C:\Windows\System32`. If RSAT is installed, those tools will appear. If it's a bare-bones member server, they don't. It organizes everything into three searchable columns:  
